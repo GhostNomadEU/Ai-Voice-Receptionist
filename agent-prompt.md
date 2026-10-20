@@ -1,4 +1,4 @@
-# 👻 GhostNomad Voice Receptionist — Agent Prompt
+# 👻 GhostReception — Agent Prompt
 
 Use this as a starting point for the **Make AI Agent** instructions. Replace the placeholders and adapt the output contract to the exact Vapi tool schema configured for your assistant.
 
