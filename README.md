@@ -138,7 +138,7 @@ The Vapi trigger is instant, not schedule-based. Continuous availability depends
 .
 ├── README.md
 ├── agent-prompt.md
-└── GhostNomad Voice Receptionist.blueprint.json
+└── Voice Receptionist Blueprint.json
 ```
 
 Keep the blueprint filename consistent with the actual file you commit. The uploaded scaffold may have a different filename; rename it to the example above only if that matches your repository convention.
@@ -153,7 +153,6 @@ Keep the blueprint filename consistent with the actual file you commit. The uplo
 - [ ] End-to-end tests completed
 - [ ] Scenario activated for live calls
 
-The scenario structure was checked against Make's schema, but no runtime test was performed. This repository documents a starting point, not a verified production deployment.
 
 ## 👻 About GhostNomad
 
