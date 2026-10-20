@@ -138,7 +138,7 @@ The Vapi trigger is instant, not schedule-based. Continuous availability depends
 .
 ├── README.md
 ├── agent-prompt.md
-└── GhostReception Blueprint.json
+└── GhostReception.json
 ```
 
 Keep the blueprint filename consistent with the actual file you commit. The uploaded scaffold may have a different filename; rename it to the example above only if that matches your repository convention.
