@@ -1,0 +1,135 @@
+{
+    "name": "GhostNomad Voice Receptionist",
+    "flow": [
+        {
+            "id": 1,
+            "module": "vapi:watchToolCallRequest",
+            "version": 2,
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0
+                }
+            }
+        },
+        {
+            "id": 2,
+            "module": "ai-local-agent:RunLocalAIAgent",
+            "version": 0,
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0,
+                    "name": "Receptionist Agent"
+                }
+            },
+            "tools": [
+                {
+                    "name": "Check appointment availability",
+                    "description": "Use when the caller asks for appointment times or proposes a date/time. Check Google Calendar free/busy availability for the requested time window; report only slots confirmed available. Do not create an event from this tool.",
+                    "flow": [
+                        {
+                            "id": 3,
+                            "module": "google-calendar:getFreeBusyInformation",
+                            "version": 5,
+                            "metadata": {
+                                "designer": {
+                                    "x": 600,
+                                    "y": 250,
+                                    "name": "Check Availability"
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Book confirmed appointment",
+                    "description": "Create a Google Calendar event only after the caller explicitly agrees to an exact available date and time. Collect the caller's name and contact details plus the appointment purpose when available. Never invent missing details or book an unconfirmed slot.",
+                    "flow": [
+                        {
+                            "id": 4,
+                            "module": "google-calendar:createAnEvent",
+                            "version": 5,
+                            "metadata": {
+                                "designer": {
+                                    "x": 600,
+                                    "y": 450,
+                                    "name": "Book Appointment"
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Alert team about urgent call",
+                    "description": "Send a Slack alert only when the caller describes an urgent issue or explicitly needs prompt human follow-up. Include caller name and callback number if provided, the reason for urgency, and a concise summary. Do not send for routine inquiries.",
+                    "flow": [
+                        {
+                            "id": 5,
+                            "module": "slack:CreateMessage",
+                            "version": 4,
+                            "metadata": {
+                                "designer": {
+                                    "x": 600,
+                                    "y": 650,
+                                    "name": "Urgent Slack Alert"
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "module": "vapi:respondToToolCall",
+            "version": 2,
+            "parameters": {},
+            "mapper": {
+                "toolCallId": "{{1.toolCallList[1].id}}",
+                "result": "{{2.response}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 600,
+                    "y": 0,
+                    "name": "Return Vapi Result"
+                },
+                "restore": {},
+                "expect": [
+                    {
+                        "name": "toolCallId",
+                        "type": "text",
+                        "label": "Tool Call ID"
+                    },
+                    {
+                        "name": "result",
+                        "type": "text",
+                        "label": "Result"
+                    }
+                ]
+            }
+        }
+    ],
+    "metadata": {
+        "instant": true,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu1.make.com",
+        "notes": []
+    }
+}
