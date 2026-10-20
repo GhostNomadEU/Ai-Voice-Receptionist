@@ -1,4 +1,4 @@
-# 👻 GhostNomad Voice Receptionist
+# 👻 GhostReception
 
 > An exportable Make.com scenario scaffold for a Vapi-powered AI phone receptionist.
 
