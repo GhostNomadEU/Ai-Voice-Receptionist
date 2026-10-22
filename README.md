@@ -22,6 +22,10 @@ When fully configured, the workflow is designed to:
 
 **Important:** Urgent calls are alerted to a human through Slack; this workflow does **not** transfer a live call. Call records and transcripts remain in Vapi. This scenario does not create a separate transcript store.
 
+## ⚙️ GhostReception Workflow
+
+![GhostReception Workflow](https://raw.githubusercontent.com/GhostNomadEU/GhostReception/main/Workflow.jpg)
+
 ## 🧭 Architecture
 
 ```text
