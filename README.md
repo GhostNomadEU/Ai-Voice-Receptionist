@@ -1,3 +1,5 @@
+![GhostReception - AI Voice Receptionist](https://raw.githubusercontent.com/GhostNomadEU/GhostReception/main/Header.png)
+
 # 👻 GhostReception
 
 > An exportable Make.com scenario scaffold for a Vapi-powered AI phone receptionist.
