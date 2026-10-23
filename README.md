@@ -24,7 +24,7 @@ When fully configured, the workflow is designed to:
 
 ## ⚙️ GhostReception Workflow
 
-![GhostReception Workflow](https://raw.githubusercontent.com/GhostNomadEU/GhostReception/main/Workflow.jpg)
+![GhostReception Workflow](https://raw.githubusercontent.com/GhostNomadEU/GhostReception/main/Workflow.png)
 
 ## 🧭 Architecture
 
